@@ -1,0 +1,25 @@
+{
+  "name": "family-video-curation",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "db:migrate": "node scripts/migrate.mjs"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "1.2.0",
+    "next": "16.3.8",
+    "next-auth": "5.0.0-beta.32",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.4",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "typescript": "7.0.2"
+  }
+}
