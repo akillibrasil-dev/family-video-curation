@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: akilli-conversor-media
+    runtime: python
+    plan: free
+    region: virginia
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT --workers 1
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: DATA_DIR
+        value: /tmp/converter
+      - key: PUBLIC_ORIGINS
+        value: https://akillibrasil.com,https://www.akillibrasil.com
+      - key: TRUST_PROXY
+        value: "false"
+      - key: MAX_DURATION_SECONDS
+        value: "300"
+      - key: MAX_FILE_BYTES
+        value: "104857600"
+      - key: MAX_ACTIVE_JOBS
+        value: "1"
+      - key: RATE_LIMIT_COUNT
+        value: "2"
+      - key: RATE_LIMIT_WINDOW_SECONDS
+        value: "600"
+      - key: FILE_TTL_SECONDS
+        value: "900"
